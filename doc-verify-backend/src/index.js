@@ -13,12 +13,9 @@ const digilockerRoutes = require('./routes/digilocker');
 const PORT = process.env.PORT || 5000;
 
 // Middleware
+// Add the exact URL from your error message to the origin array
 app.use(cors({
-  origin: [
-    'http://localhost:5173',           // Allows local development
-    'https://your-app-name.vercel.app' // REPLACE this with your actual Vercel URL after deployment
-  ],
-  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT'],
+  origin: true, // This tells the server to accept ANY origin that makes a request
   credentials: true
 }));
 app.use(express.json());
